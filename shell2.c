@@ -9,8 +9,6 @@
 #define MAXCOM 1000
 #define MAXLIST 100
 #define clear() printf("\033[H\033[J")
-char history_arr[MAXCOM][MAXLIST];
-int history_count;
 void init_shell(){
 	clear();
 	printf("\n\n\n\t\t**********************");
@@ -164,7 +162,6 @@ int takeInput(char *str){
 	if(strlen(buf)!=0){
 		strcpy(str, buf);
 		FILE *ptr=fopen("/home/varun/Desktop/project/history.txt","at");
-		strcpy(history_arr[history_count],buf);
 		fprintf(ptr,"%s\n",buf);
 		fclose(ptr);
 		return 0;
